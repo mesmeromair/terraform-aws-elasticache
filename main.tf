@@ -43,6 +43,7 @@ resource "aws_elasticache_replication_group" "default" {
   parameter_group_name          = var.parameter_group_name
   node_type                     = var.node_type
   automatic_failover_enabled    = var.automatic_failover_enabled
+  multi_az_enabled              = var.automatic_failover_enabled
   subnet_group_name             = join("", aws_elasticache_subnet_group.default.*.name)
   security_group_ids            = var.security_group_ids
   security_group_names          = var.security_group_names
@@ -76,6 +77,7 @@ resource "aws_elasticache_replication_group" "cluster" {
   parameter_group_name          = var.parameter_group_name
   node_type                     = var.node_type
   automatic_failover_enabled    = var.automatic_failover_enabled
+  multi_az_enabled              = var.automatic_failover_enabled
   subnet_group_name             = join("", aws_elasticache_subnet_group.default.*.name)
   security_group_ids            = var.security_group_ids
   security_group_names          = var.security_group_names
