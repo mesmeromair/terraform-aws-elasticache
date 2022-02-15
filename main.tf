@@ -53,7 +53,7 @@ resource "aws_elasticache_replication_group" "default" {
   snapshot_window               = var.snapshot_window
   snapshot_retention_limit      = var.snapshot_retention_limit
   apply_immediately             = var.apply_immediately
-  availability_zones            = slice(var.availability_zones, 0, var.number_cache_clusters)
+  preferred_cache_cluster_azs   = slice(var.availability_zones, 0, var.number_cache_clusters)
   number_cache_clusters         = var.number_cache_clusters
   auto_minor_version_upgrade    = var.auto_minor_version_upgrade
   maintenance_window            = var.maintenance_window
@@ -87,7 +87,7 @@ resource "aws_elasticache_replication_group" "cluster" {
   snapshot_window               = var.snapshot_window
   snapshot_retention_limit      = var.snapshot_retention_limit
   apply_immediately             = var.apply_immediately
-  availability_zones            = slice(var.availability_zones, 0, var.num_node_groups)
+  preferred_cache_cluster_azs   = slice(var.availability_zones, 0, var.num_node_groups)
   auto_minor_version_upgrade    = var.auto_minor_version_upgrade
   maintenance_window            = var.maintenance_window
   at_rest_encryption_enabled    = var.at_rest_encryption_enabled
