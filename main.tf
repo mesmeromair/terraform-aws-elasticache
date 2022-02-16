@@ -78,7 +78,6 @@ resource "aws_elasticache_replication_group" "cluster" {
   node_type                     = var.node_type
   automatic_failover_enabled    = var.automatic_failover_enabled
   multi_az_enabled              = var.automatic_failover_enabled
-  number_cache_clusters         = var.number_cache_clusters
   subnet_group_name             = join("", aws_elasticache_subnet_group.default.*.name)
   security_group_ids            = var.security_group_ids
   security_group_names          = var.security_group_names
